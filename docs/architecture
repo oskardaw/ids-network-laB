@@ -1,0 +1,18 @@
+Kali Linux (Attacker)
+        |
+        |  ICMP / TCP / UDP / scans / flood
+        v
+Ubuntu Victim (Target) ----------- same subnet ----------- Ubuntu IDS Sensor
+                                                              |
+                                                              | passive monitoring
+                                                              v
+                                        Snort / Suricata / Zeek (one at a time)
+
+
+
+
+## Description
+
+The environment consists of three virtual machines connected in a single isolated subnet. 
+All traffic is generated from the attacker machine and directed towards the victim host. 
+The IDS sensor operates in passive mode, capturing and analyzing network traffic without interfering with packet flow.
