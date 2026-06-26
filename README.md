@@ -8,7 +8,7 @@ The goal of the project is to evaluate and compare how each system behaves under
 
 The analysis focuses on detection capability, logging approaches, and behavioral visibility of each tool when processing various types of network traffic and simulated attack scenarios.
 
----
+
 
 ## Objective
 
@@ -19,7 +19,7 @@ The main objective of this project is to:
 - Evaluate differences in alert generation, logging detail, and usability
 - Understand strengths and limitations of each tool in a home network context
 
----
+
 
 ## Lab Architecture
 
@@ -31,7 +31,7 @@ The environment consists of three virtual machines connected in an isolated subn
 
 All systems operate in a passive monitoring setup where the IDS sensor observes traffic without interfering with network communication.
 
----
+
 
 ## Tools and Technologies
 
@@ -43,7 +43,7 @@ All systems operate in a passive monitoring setup where the IDS sensor observes 
 - VirtualBox / VMware (virtualization environment)
 - TCP/IP networking tools (ping, /dev/tcp, /dev/udp)
 
----
+
 
 ## Methodology
 
@@ -66,7 +66,7 @@ Data was collected in the form of:
 - Traffic generation logs
 - Screenshots of execution results
 
----
+
 
 ## Key Findings
 
@@ -77,7 +77,7 @@ Data was collected in the form of:
 - Behavior-based analysis (Zeek) is better suited for forensic and investigative workflows
 - Combining both approaches provides the most complete security visibility
 
----
+
 
 ## Results Summary
 
@@ -86,7 +86,7 @@ Data was collected in the form of:
 - Zeek provides the best analytical depth but requires more expertise for interpretation
 - Proper rule tuning significantly improves detection accuracy
 
----
+
 
 ## Project Structure
 
@@ -106,7 +106,7 @@ logs/
 sample logs and outputs
 
 
----
+
 
 ## Conclusion
 
@@ -114,7 +114,7 @@ This project demonstrates practical differences between three widely used networ
 
 The results show that no single tool provides complete coverage. Instead, a layered approach combining signature-based detection (Snort, Suricata) with behavioral analysis (Zeek) offers the most effective monitoring strategy in a network security environment.
 
----
+
 
 ## Note
 
