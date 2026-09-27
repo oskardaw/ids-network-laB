@@ -8,31 +8,40 @@ The setup was fully isolated and operated in a controlled local network to ensur
 
 ## System Architecture
 
-The lab consisted of three virtual machines:
+` ` `text
+Kali Linux (Attacker)
+        |
+        |  ICMP / TCP / UDP / scans / flood
+        v
+Ubuntu Victim (Target) ----------- same subnet ----------- Ubuntu IDS Sensor
+                                                              |
+                                                              | passive monitoring
+                                                              v
+                                                Snort / Suricata / Zeek (one at a time)
+` ` `
+
+The environment consists of three virtual machines connected in a single isolated subnet. All traffic is generated from the attacker machine and directed towards the victim host. The IDS sensor operates in passive mode, capturing and analyzing network traffic without interfering with packet flow.
 
 ### Attacker Machine
-- OS: Kali Linux
-- Role: Traffic generation (ICMP, TCP, UDP)
-- Tools: ping, /dev/tcp, /dev/udp, manual traffic generation
+- **OS**: Kali Linux
+- **Role**: Traffic generation (ICMP, TCP, UDP)
+- **Tools**: `ping`, `/dev/tcp`, `/dev/udp`, manual traffic generation
 
 ### Target Machine (Victim)
-- OS: Ubuntu
-- Role: Service endpoint receiving network traffic
+- **OS**: Ubuntu
+- **Role**: Service endpoint receiving network traffic
 
 ### Monitoring Machine (IDS Sensor)
-- OS: Ubuntu
-- Role: Passive network traffic analysis
-- Tools:
-  - Snort
-  - Suricata
-  - Zeek
+- **OS**: Ubuntu
+- **Role**: Passive network traffic analysis
+- **Tools**: Snort, Suricata, Zeek
 
 ## Network Configuration
 
-- All machines were located in the same private subnet
-- Static IP addressing was used
-- Network interface: ens33
-- Monitoring mode: passive (no packet injection or blocking)
+- All machines were located in the same private subnet.
+- Static IP addressing was used across all interfaces.
+- Network interface: `ens33`
+- Monitoring mode: passive (no packet injection or blocking).
 
 ## Key Design Principle
 
